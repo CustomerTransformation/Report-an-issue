@@ -11,7 +11,7 @@
     "date_due_warn": "",
     "showCaseReference": false,
     "isSubform": false,
-    "notes": "added address field and amended introduction",
+    "notes": "amended link to report fly tipping and report rubbish",
     "initial_stage": "Stage 1",
     "initial_stage_id": "AF-Stage-d7bc9783-8e75-4442-845f-34c6cb68b0f2",
     "prefix": "RP",
@@ -193,8 +193,8 @@
                 "Category": "z Global",
                 "data_type": "lookup",
                 "allow_offline": 0,
-                "Output_template": "{\"lookup_validation\":\"0\",\"method\":\"GET\",\"url\":\"https://{host}/apibroker/?key={apibrokerKey}&pass={apibrokerPass}&api=getCiviVars&app_name=AchieveService&var=titles\",\"show_headers\":\"no\",\"responseType\":\"JSON\",\"strip_namespaces\":\"1\",\"path_to_values\":\"RepeatableNode\",\"fields\":\"{\\n\\n\\\"name\\\":\\\"name\\\",\\n\\n\\\"label\\\":\\\"display\\\"\\n\\n}\",\"xslt_stylesheet\":\"\",\"results_page_columns\":\"\",\"secure_fields_db_http\":\"\"}",
-                "log_only_on_error": 0,
+                "Output_template": "{\"method\":\"GET\",\"url\":\"https://{host}/apibroker/?key={apibrokerKey}&pass={apibrokerPass}&api=getCiviVars&app_name=AchieveService&var=titles\",\"show_headers\":\"no\",\"responseType\":\"JSON\",\"strip_namespaces\":\"1\",\"path_to_values\":\"RepeatableNode\",\"fields\":\"{\\n\\n\\\"name\\\":\\\"name\\\",\\n\\n\\\"label\\\":\\\"display\\\"\\n\\n}\",\"xslt_stylesheet\":\"\",\"results_page_columns\":\"\",\"secure_fields_db_http\":\"\"}",
+                "log_only_on_error": 1,
                 "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"daniel.gregory@portsmouthcc.gov.uk\"}"
               },
               "58ca773b44b4b": {
@@ -824,7 +824,7 @@
                     "outerClass": "",
                     "width": "",
                     "showInSummary": false,
-                    "content": "<p>To report an issue with the cleanliness of a road or pavement, please complete the <a href=\"https://my.portsmouth.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-1bed60f7-8488-4dd2-aab1-10246c46f591/AF-Stage-05b84f53-d2ba-4387-a908-40d2497bb7cd/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes\" target=\"_top\">Report rubbish in the road or pavement</a> form.</p>",
+                    "content": "<p>To report an issue with the cleanliness of a road or pavement, please complete the <a href=\"https://my.portsmouth.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-5e2d630c-2331-47fc-ae25-9d4b79c59811/AF-Stage-a5024096-d4e1-4221-9493-9c551d91cd99/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes\" target=\"_top\">Report rubbish in the road or pavement</a> form.</p>",
                     "displayCondition": "{whatReport} icontains 'Cleaning'",
                     "readOnly": false
                   },
@@ -974,7 +974,7 @@
                     "outerClass": "",
                     "width": "",
                     "showInSummary": false,
-                    "content": "<p>To report fly tipping, please complete the <a href=\"https://my.portsmouth.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-684d59fa-3fc3-42ae-bfbe-edf376c2d5a0/AF-Stage-dedb0ce7-bbdf-412a-80f7-c566771fc8a6/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes\" target=\"_top\">Report fly tipping</a> form.</p>",
+                    "content": "<p>To report fly tipping, please complete the <a href=\"https://my.portsmouth.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-5e2d630c-2331-47fc-ae25-9d4b79c59811/AF-Stage-a5024096-d4e1-4221-9493-9c551d91cd99/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes\" target=\"_top\">Report fly tipping</a> form.</p>",
                     "displayCondition": "{whatReport} icontains 'Fly tipping'"
                   },
                   "conditionInputs": [
@@ -1964,6 +1964,51 @@
                               "id": "AF-Field-96b10f88-d9f3-40c5-9a37-02d35fc93a41"
                             },
                             {
+                              "type": "text",
+                              "props": {
+                                "label": "Default for Address In Out",
+                                "dataName": "defaultAddressIn",
+                                "labelPosition": "alignLeft",
+                                "defaultValue": "if({subParam} contains 'ip',0,\n           if({subParam} contains 'op',1,\n                     if({subParam} contains 'ov',2,'')))",
+                                "helpText": "",
+                                "hidden": true,
+                                "readOnly": true,
+                                "summaryField": false,
+                                "displayName": true,
+                                "outerClass": null,
+                                "labelClass": null,
+                                "inputClass": null,
+                                "outputFormat": "normal",
+                                "currencyPrefix": null,
+                                "width": null,
+                                "inputMask": null,
+                                "inputMaskPlaceholder": null,
+                                "lengthCount": null,
+                                "hideWhenBlank": null,
+                                "displayCondition": null,
+                                "mandatoryCondition": null,
+                                "readonlyCondition": null,
+                                "mandatory": false,
+                                "minimumLength": "",
+                                "maximumLength": "",
+                                "validationCondition": "",
+                                "validationMask": "",
+                                "mandatoryMessage": "This information is required",
+                                "minimumLengthMessage": "Please input at least _min_value_ characters",
+                                "maximumLengthMessage": "Please input no more than _max_value_ characters",
+                                "validationMaskMessage": "Please input text of the format: _validation_mask_",
+                                "validationConditionMessage": "This field is invalid",
+                                "validationMaskMessageValue": "Select...",
+                                "separatedDateDefaultValue": {
+                                  "day": "",
+                                  "month": "",
+                                  "year": ""
+                                }
+                              },
+                              "conditionInputs": [],
+                              "id": "AF-Field-90faf09d-7218-48c5-99ad-e1a05ecfc308"
+                            },
+                            {
                               "type": "radio",
                               "props": {
                                 "label": "Is the address",
@@ -1971,7 +2016,7 @@
                                 "labelPosition": "alignLeft",
                                 "defaultType": "text",
                                 "defaultValue": null,
-                                "defaultValueText": "",
+                                "defaultValueText": "{defaultAddressIn}",
                                 "listSource": "one-time-list",
                                 "helpText": "",
                                 "readOnly": false,
